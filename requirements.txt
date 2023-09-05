@@ -1,0 +1,7 @@
+pytest~=7.4.1
+coverage~=7.3.0
+tox
+flake8
+flask~=2.3.3
+requests~=2.31.0
+python-dotenv
