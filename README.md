@@ -17,7 +17,7 @@ Run ```source env/bin/activate``` from root, in bash shell
 
 Run ```pip install -r requirements.txt``` to install dependencies
 
-Run ```python app.py``` to open the development server
+Run ```uvicorn src.main:app --host localhost --port 8888``` to open the development server
 
 ## Swagger documentation
-Access the API documentation by entering adding ```/ui``` to the endpoint
+Access the API documentation by going to ```localhost:8888/docs``` endpoint
