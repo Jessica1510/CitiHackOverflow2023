@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+}
+
+html {
+    font-family: Montserrat;
+    width: 100%;
+    margin: 0;
+    line-height: normal;
+}
+
+body {
+    background: transparent;
+}
+
+.card {
+    width: auto;
+    margin-bottom: 14px;
+    box-shadow: black;
+}
+
+.card_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 20px auto;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 56px;
+}
+
+.bottomNavigation {
+    position: fixed;
+    bottom: 0; /* Stick it to the bottom */
+    width: 100%;
+    color: #fff; /* Customize the text color */
+    z-index: 999;
+    box-shadow: var(--shadow-default);
+}
+
+.popular_container{
+    display: flex;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
