@@ -1,5 +1,3 @@
-import flask
-from flask import Flask, render_template # for web app
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 import pandas as pd

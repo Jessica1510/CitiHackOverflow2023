@@ -1,0 +1,102 @@
+.Card {
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    padding: 1px;
+    border-radius: var(--br-mini);
+    background: #e2e9f4;
+    overflow: hidden;
+    box-shadow: var(--shadow-default);
+    width: 100%; /* Make the card expand to 100% of its container's width */
+    margin: 0 auto; /* Center the card horizontally */
+}
+
+.CardInner {
+    padding: 16px 16px;
+    background-color: #e2e9f4;
+    border-radius: var(--br-mini);
+}
+
+.SearchContainer {
+    display: flex;
+}
+
+.Icon {
+    min-width: 46px;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--br-mini);
+    margin-right: 12px;
+    box-shadow: var(--shadow-default);
+    & svg {
+        transform: translate(-1px, -1px);
+    }
+}
+
+label {
+    font-family: var(--default-font);
+    display: block;
+    color: black;
+    margin-bottom: 12px;
+    background: linear-gradient(45deg, rgba(107, 123, 143, 1), #3c4b66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.InputContainer {
+    width: 100%;
+}
+
+input {
+    background-color: #e3edf7;
+    padding: 16px 32px;
+    border: none;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    color: #a9b8c9;
+    -webkit-appearance: none;
+    transition: all 240ms ease-out;
+    width: 100%;
+
+    &::placeholder {
+        color: #6d7f8f;
+    }
+
+    &:focus {
+        outline: none;
+        color: #6d7f8f;
+        background-color: hsl(210, 96%, 99%);
+    }
+}
+
+.InputContainer {
+    --top-shadow: inset 1px 1px 3px #c5d4e3, inset 2px 2px 6px #c5d4e3;
+    --bottom-shadow: inset -2px -2px 4px rgba(255,255,255, .7);
+
+    position: relative;
+    border-radius: var(--br-mini);
+    overflow: hidden;
+
+    &:before,
+    &:after {
+        left: 0;
+        top: 0;
+        display: block;
+        content: "";
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &:before {
+        box-shadow: var(--bottom-shadow);
+    }
+
+    &:after {
+        box-shadow: var(--top-shadow);
+    }
+}
