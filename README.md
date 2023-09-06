@@ -3,7 +3,7 @@ Project for CitiHackOverflow2023, by Team City Hackers
 
 Uses Python 3.11
 
-This is a super simple flask application using Flask API
+This is a simple FastAPI backend
 
 ## Creating a virtual environment 
 Run ```py -3.11 -m venv env``` from the root folder, this will create a virtual environment with Python 3.11 
