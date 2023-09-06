@@ -7,4 +7,5 @@ export function getData(endpoint, callback) {
   };
   request.open("GET", endpoint);
   request.send();
+  console.log("sent");
 }
