@@ -1,0 +1,26 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City Hackers</title>
+</head>
+<body>
+    <!-- .... -->
+
+    {% if config['DEBUG'] %}
+        <pre>
+            <code>
+                {{ config }}
+            </code>
+        </pre>
+
+        <style>
+            pre {
+                white-space: pre-wrap;
+            }
+        </style>
+    {% endif %}
+</body>
+</html>

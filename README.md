@@ -22,3 +22,6 @@ Run ```.\env\Scripts\Activate.bat``` from root, in terminal
 Run ```source env/bin/activate``` from root, in bash shell
 
 Run ```python app.py``` to open the development server
+
+## Swagger documentation
+Access the API documentation by entering adding ```/ui``` to the endpoint

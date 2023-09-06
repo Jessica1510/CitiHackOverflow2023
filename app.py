@@ -1,16 +1,16 @@
 from flask import Flask, render_template
+import connexion
 
 
-def create_app():
-    return Flask(__name__)
-
-
-app = create_app()
+app = connexion.App(__name__, specification_dir="./")
+app.add_api("swagger.yml")
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 
-app.run(host="localhost", port=1337)
+# Turn off debug flag if doing production build
+if __name__ == "__main__":
+    app.run(host="localhost", port=1337, debug=True)

@@ -1,0 +1,34 @@
+# swagger.yml
+
+openapi: 3.0.0
+info:
+  title: "City Hackers"
+  description: "An API for City Hackers CitiHackOverflow2023"
+  version: "1.0.0"
+
+servers:
+  - url: "/"
+
+components:
+  parameters:
+    ticker_name:
+      name: "ticker_name"
+      description: "Ticker of a company name to get"
+      in: path
+      required: True
+      schema:
+        type: "string"
+
+paths:
+  /analysis/{ticker_name}:
+    get:
+      operationId: "analysis.generate_ticker_analysis"
+      tags:
+        - Analysis
+      summary: "Generate an analysis"
+      parameters:
+        - $ref: "#/components/parameters/ticker_name"
+      responses:
+        "200":
+          description: "Analysis successfully generated"
+
