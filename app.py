@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import render_template
 import connexion
 
 
@@ -8,7 +8,7 @@ app.add_api("swagger.yml")
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 # Turn off debug flag if doing production build
