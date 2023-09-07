@@ -1,6 +1,5 @@
 from fastapi import APIRouter
-from flask import send_from_directory
-from ..Controllers.SentimentAnalysisController import sentiment_scores
+from ..Controllers.SentimentAnalysisController import sentiment_score
 from ..Controllers.TrendAnalysis import loadData
 from ..Controllers.Summary import generate_summary_message
 
@@ -11,9 +10,10 @@ async def sample():
     return "sample passed"
 
 
-@router.get('/sentiment_scores/<ticker>')
+@router.get('/sentiment_scores/{ticker}')
 async def sentiment_scores(ticker):
-    return send_from_directory('../Images', sentiment_scores.png)
+    sentiment_score(ticker)
+    #return {"image_url": f'/Images/{ticker}.png'}
 
 @router.get('/summary/{ticker}')
 async def summary_scores(ticker):
