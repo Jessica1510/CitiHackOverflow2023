@@ -1,28 +1,21 @@
 import React from "react";
 import "./index.css";
 import "./global.css";
-import SearchBar from "./components/SearchBar";
 import BottomNavigation from "./components/BottomNavigation";
-import Carousel from "./components/Carousel";
-
+import {Route, Routes} from 'react-router';
+import HomePage from "./pages/HomePage";
+import DataPage from "./pages/DataPage";
+import AnalysisPage from "./pages/AnalysisPage";
 
 function App() {
+
     return (
-        <div className={"mainContainer"}>
-            <div className={"header"}>
-                <h1 className={"title"}>
-                    Welcome
-                </h1>
-                <SearchBar />
-            </div>
-            <h2>
-                Featured
-            </h2>
-            <Carousel />
-            <h2>
-                Learn
-            </h2>
-            <Carousel />
+        <div>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/data/:ticker" element={<DataPage />} />
+                <Route path="/analysis/:ticker" element={<AnalysisPage />} />
+            </Routes>
             <div className={"bottomNavigation"}>
                 <BottomNavigation />
             </div>

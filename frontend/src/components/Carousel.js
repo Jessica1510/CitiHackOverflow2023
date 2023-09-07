@@ -138,6 +138,9 @@ export const Card = React.memo(function (props) {
                     justifyContent: "space-evenly",
                     padding: "20px",
                     borderRadius: "20px",
+                    border: "3px",
+                    borderStyle: "solid",
+                    borderColor: "white"
                 }}
                 draggable={false}
             >

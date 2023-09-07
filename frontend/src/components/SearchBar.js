@@ -1,27 +1,40 @@
 import "./SearchBar.css"
+import {useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
 
 const SearchBar = () =>
 {
+    const [ticker, setTicker] = useState("")
+    const navigate = useNavigate();
 
-    const inputField = []
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`data/${ticker}`);
+    };
 
-    function handleSubmit() {
-        return undefined;
-    }
+    const handleInputChange = (e) => {
+        setTicker(e.target.value);
+    };
 
     return(
         <div className="Card">
             <div className="CardInner">
                 <label>
-                    Start Exploring By Finding A Ticker
+                    Let's search for a ticker!
                 </label>
                 <div className="SearchContainer">
-                    <form className="InputContainer">
-                        <input placeholder="TSLA or NVDA or AAPL"/>
+                    <form
+                        className="InputContainer"
+                        onSubmit={handleSubmit}
+                    >
+                        <input
+                            placeholder="TSLA or NVDA or AAPL"
+                            onChange={handleInputChange} // Added an onChange event
+                        />
                     </form>
                     <div
                         className="Icon"
-                        onClick={ handleSubmit() }
+                        onClick={handleSubmit}
                     >
                         <img src="/icons/searchIcon.svg" alt="search icon" style={{color: "white"}} />
                     </div>
