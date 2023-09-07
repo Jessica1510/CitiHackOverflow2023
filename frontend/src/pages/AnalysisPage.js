@@ -12,15 +12,19 @@ const AnalysisPage = () => {
 
     const fetchData = async () => {
 
+        const sentimentResponse = await fetch("http://localhost:8888/sentiment_scores/" + ticker);
+        const responseData = await sentimentResponse.json();
+        // Assuming responseData is the JSON object with the "image_url" property
+        const graphUrl = "http://localhost:8888" + responseData.image_url;
+        const headline1 = responseData.headline1;
+        const headline2 = responseData.headline2;
+        const headline3 = responseData.headline3;
+
         const response = await fetch("http://localhost:8888/summary/" + ticker);
         const summary = await response.text();
         setData(summary);
         console.log(summary);
 
-        const sentimentResponse = await fetch("http://localhost:8888/sentiment_scores/" + ticker);
-        const responseData = await sentimentResponse.json();
-        // Assuming responseData is the JSON object with the "image_url" property
-        const graphUrl = "http://localhost:8888" + responseData.image_url;
         setImageUrl(graphUrl)
     }
 

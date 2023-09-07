@@ -48,6 +48,14 @@ def sentiment_score(ticker):
 
     news_scores_table = news_table.join(scores, rsuffix='_right')
 
+    first_three_headlines = news_scores_table.iloc[:3]['headline']
+
+    headline_dict = {
+        "headline1": first_three_headlines.iloc[0],
+        "headline2": first_three_headlines.iloc[1],
+        "headline3": first_three_headlines.iloc[2]
+    }
+
     plt.figure(figsize = (13, 13))
     df = news_scores_table.groupby('date')['compound'].mean()
     #df = df.unstack()
@@ -63,6 +71,8 @@ def sentiment_score(ticker):
     #images_dir = os.path.join(main_dir, 'frontend/public/')
     images_dir = os.path.join(src_dir, 'Images/')
     plt.savefig(images_dir + f'{ticker}.svg', format="svg")
+
+    return headline_dict
 
 
         
