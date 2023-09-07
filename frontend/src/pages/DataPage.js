@@ -3,7 +3,6 @@ import {useNavigate, useParams} from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import {motion} from "framer-motion";
 import "../index.css"
-import BottomNavigation from "../components/BottomNavigation";
 
 const DataPage = () => {
     let {ticker} = useParams();
@@ -29,7 +28,7 @@ const DataPage = () => {
     //     });
 
     return (
-        <div>
+        <div className={"mainContainer"}>
             <motion.div
                 initial={{ y: '-100%' }} // Initial position (off-screen)
                 animate={{ y: '0' }} // Final position (on-screen)
@@ -41,9 +40,6 @@ const DataPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
-            <div className={"bottomNavigation"}>
-                <BottomNavigation />
-            </div>
         </div>
     );
 };

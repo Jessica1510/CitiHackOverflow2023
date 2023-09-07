@@ -2,7 +2,7 @@ import React from "react";
 import {motion} from "framer-motion";
 import SearchBar from "../components/SearchBar";
 import {useNavigate, useParams} from "react-router-dom";
-import BottomNavigation from "../components/BottomNavigation";
+import "../index.css"
 
 const AnalysisPage = () => {
     let {ticker} = useParams();
@@ -28,7 +28,7 @@ const AnalysisPage = () => {
     //     });
 
     return (
-        <div>
+        <div className={"mainContainer"}>
             <motion.div
                 initial={{ y: '-100%' }} // Initial position (off-screen)
                 animate={{ y: '0' }} // Final position (on-screen)
@@ -40,9 +40,6 @@ const AnalysisPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
-            <div className={"bottomNavigation"}>
-                <BottomNavigation />
-            </div>
         </div>
     );
 };
