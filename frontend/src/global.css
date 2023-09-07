@@ -24,11 +24,12 @@ body {
     /* Colors */
     --main-grey-tones-main-grey-4: #e8e6e6;
     --black: #000;
-    --dark-blue: #3F51B5;
-    --purple: #8236FD;
+    --dark-blue: #0077b6;
+    --purple: #001d3d;
     --white: #fff;
-    --gray: #ABABB9;
-
+    --gray: #415a77;
+    
+    /*ABABB9 */
     /* Gaps */
     --gap-3xs: 10px;
     --gap-5xl: 24px;

@@ -53,7 +53,7 @@ export const data = [
 ];
 
 const Button = styled.button`
-  background-color: #3F51B5;
+  background-color: #415a77;
   font-family: Montserrat;
   color: white;
   font-size: 14px;
@@ -91,7 +91,6 @@ export default function ResponsiveCarousel() {
                 <Fab
                     style={{ position: "absolute", top: "40%", left: 10, zIndex: 10 }}
                     size="small"
-                    color="primary"
                     onClick={() => {
                         ref.current?.goBack();
                     }}
@@ -101,7 +100,6 @@ export default function ResponsiveCarousel() {
                 <Fab
                     style={{ position: "absolute", top: "40%", right: 10, zIndex: 10 }}
                     size="small"
-                    color="primary"
                     onClick={() => {
                         ref.current?.goNext();
                     }}
@@ -130,7 +128,7 @@ export const Card = React.memo(function (props) {
                     height: "100%",
                     width: "100%",
                     objectFit: "cover",
-                    backgroundColor: "#8236FD",
+                    backgroundColor: "#001d3d",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",

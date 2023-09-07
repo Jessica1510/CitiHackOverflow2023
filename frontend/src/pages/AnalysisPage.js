@@ -10,7 +10,7 @@ const AnalysisPage = () => {
     const [data, setData] = useState("");
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:8888/summary/" + ticker);
+        const response = await fetch("http://localhost:1337/summary/" + ticker);
         const summary = await response.text();
         setData(summary);
         console.log(summary);
