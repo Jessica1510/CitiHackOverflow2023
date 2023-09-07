@@ -8,13 +8,13 @@ from starlette.templating import _TemplateResponse as templateResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 
-from src.routers import router_sample
+from src.routers import router
 
 relative_path = "src/"
 
 app = FastAPI()
 
-app.include_router(router_sample.router)
+app.include_router(router.router)
 origins = [
     "http://localhost:3000",
     "http://localhost:3001",
