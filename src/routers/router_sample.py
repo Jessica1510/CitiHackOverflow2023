@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from flask import send_from_directory
 from ..Controllers.SentimentAnalysisController import sentiment_scores
+from ..Controllers.TrendAnalysis import loadData
 from ..Controllers.Summary import generate_summary_message
 
 router = APIRouter(prefix="/sample", tags=["sample"])
@@ -22,6 +23,3 @@ async def summary_scores(ticker):
 @router.get('/forecast_data/{ticker}')
 async def forecast_data(ticker: str):
     return loadData(ticker)
-
-
-    
