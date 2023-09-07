@@ -14,3 +14,6 @@ async def sentiment_scores(ticker):
     return send_from_directory('../Images', sentiment_scores.png)
 
 
+@router.get('/forecast_data/{ticker}')
+async def forcast_data(ticker: str):
+    
