@@ -19,7 +19,7 @@ const SearchBar = () =>
     return(
         <div className="Card">
             <div className="CardInner">
-                <label>
+                <label style={{color : "white"}}>
                     Let's search for a ticker!
                 </label>
                 <div className="SearchContainer">
@@ -36,7 +36,7 @@ const SearchBar = () =>
                         className="Icon"
                         onClick={handleSubmit}
                     >
-                        <img src="/icons/searchIcon.svg" alt="search icon" style={{color: "white"}} />
+                        <img src="/icons/searchIcon.svg" alt="search icon" style={{color: "#a9b8c9"}} />
                     </div>
                 </div>
             </div>

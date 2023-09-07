@@ -21,7 +21,7 @@
 }
 
 .Icon {
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     min-width: 46px;
     min-height: 46px;
     display: flex;
