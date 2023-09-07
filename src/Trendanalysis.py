@@ -96,7 +96,7 @@ trace3 = go.Scatter(
     name = 'Ground Truth'
 )
 layout = go.Layout(
-    title = "AAPL",
+    title = company,
     xaxis = {'title' : "Date"},
     yaxis = {'title' : "Close"}
 )
@@ -129,8 +129,7 @@ forecast_dates = predict_dates(num_prediction)
 
 # %%
 
-
-# %%
+from kaleido.scopes.plotly import PlotlyScope
 
 trace4 = go.Scatter(
     x = df['Date'].values,
@@ -152,11 +151,15 @@ layout = go.Layout(
     xaxis = {'title' : "Date"},
     yaxis = {'title' : "Closing price"}
 )
-fig = go.Figure(data=[trace4, trace5], layout=layout)
-fig.show()
 
-import plotly.io as pio
-pio.write_image(fig, "graph.svg")
+scope = PlotlyScope(
+    plotlyjs="https://cdn.plot.ly/plotly-latest.min.js",
+    # plotlyjs="/path/to/local/plotly.js",
+)
+
+fig = go.Figure(data=[trace4, trace5], layout=layout)
+with open("figure.svg", "wb") as f:
+    f.write(scope.transform(fig, format="svg"))
 
 
 
