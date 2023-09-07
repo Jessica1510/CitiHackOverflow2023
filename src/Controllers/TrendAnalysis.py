@@ -10,10 +10,10 @@ import yfinance as yf
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 import plotly.graph_objs as go
-from json import loads, dumps
+import json 
 
 end = dt.datetime.now()
-start = dt.datetime(end.year - 5, end.month, end.day)
+start = dt.datetime(end.year - 10, end.month, end.day)
 
 #stock_data = yf.download("fweffef", start=start, end=end)
 
@@ -132,26 +132,31 @@ def forecast():
         yaxis = {'title' : "Closing price"}
     )
     fig = go.Figure(data=[trace4, trace5], layout=layout)
-    fig.show()
+    #fig.show()
     fig.write_image("frontend/public/Stock.svg")
 
     
 def loadData(Company):
-    global Ticker
-    Ticker = Company
-    stock_data = yf.download(Ticker, start=start, end=end)
-    stock_data.to_csv("stock_data.csv")
-    global df
-    df = pd.read_csv("stock_data.csv")
-    os.remove('stock_data.csv')
-    tojson = df.tail(1)
-    with open('temp.json', 'w') as f:
-        f.write(tojson.to_json(orient='records', lines=True))
-    df['Date'] = pd.to_datetime(df['Date'])
-    df.set_axis(df['Date'])
-    df.drop(columns=['Open', 'High', 'Low', 'Volume'], inplace=True)
-    forecast()
+    try:
+        global Ticker
+        Ticker = Company
+        stock_data = yf.download(Ticker, start=start, end=end)
+        stock_data.to_csv("stock_data.csv")
+        global df
+        df = pd.read_csv("stock_data.csv")
+        os.remove('stock_data.csv')
+        tojson = df.tail(1)
+        json_formatted = tojson.to_json(orient='records')
+        '''with open('temp.json', 'w') as f:
+            f.write(tojson.to_json(orient='records', lines=True))'''
+        df['Date'] = pd.to_datetime(df['Date'])
+        df.set_axis(df['Date'])
+        df.drop(columns=['Open', 'High', 'Low', 'Volume'], inplace=True)
+        forecast()
+        return json_formatted
+    except:
+        return({"error": "Data retrieval unsuccessful"})
 
 
 
-loadData("TSLA")
+# loadData("TSLA")
