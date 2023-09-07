@@ -3,29 +3,24 @@ import {useNavigate, useParams} from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import {motion} from "framer-motion";
 import "../index.css"
+import { useState,useEffect } from "react";
 
 const DataPage = () => {
     let {ticker} = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    // TODO: Replace this value with the actual endpoint
-    // fetch('/api/endpoint', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ ticker }),
-    // })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Handle response from backend
-    //         console.log(data);
-    //     })
-    //     .catch(error => {
-    //         // Handle error
-    //         console.error('Error:', error);
-    //         navigate("/");
-    //     });
+    const [data, setData] = useState("")
+
+    const fetchData = async () => {
+        const response = await fetch("http://localhost:8888/forecast_data/" + ticker);
+        const forecast_data = await response.json();
+        // setData(forecast_data);
+        console.log(forecast_data);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
 
     return (
         <div className={"mainContainer"}>
@@ -40,6 +35,11 @@ const DataPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
+            {/* {data && (
+                <div>
+                    <img src="/Stock.svg" />
+                </div>
+            )} */}
         </div>
     );
 };

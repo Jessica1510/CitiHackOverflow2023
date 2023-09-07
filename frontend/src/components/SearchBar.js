@@ -7,8 +7,7 @@ const SearchBar = () =>
     const [ticker, setTicker] = useState("")
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         navigate(`data/${ticker}`);
     };
 

@@ -14,8 +14,9 @@ relative_path = "src/"
 app = FastAPI()
 app.include_router(router_sample.router)
 origins = [
-    "http://localhost:3001",
     "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
 ]
 
 app.add_middleware(

@@ -154,8 +154,8 @@ def loadData(Company):
         df.drop(columns=['Open', 'High', 'Low', 'Volume'], inplace=True)
         forecast()
         return json_formatted
-    except:
-        return({"error": "Data retrieval unsuccessful"})
+    except Exception as e:
+        return({"error": "Data retrieval unsuccessful" + str(e)})
 
 
 
