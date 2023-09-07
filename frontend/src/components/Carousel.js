@@ -6,51 +6,63 @@ import {
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import styled from 'styled-components';
 
 // TODO: HARDCODED DATA FROM TEMPLATE
 export const data = [
     {
-        cover: "https://images6.alphacoders.com/679/thumb-1920-679459.jpg",
-        title: "Interstaller",
+        title: "What is Risk Management?",
+        fact: "Risk management is a systematic process of identifying, assessing, and prioritizing potential risks to minimize their impact on an organization's objectives. It involves making informed decisions to mitigate or transfer risks."
     },
     {
-        cover: "https://images2.alphacoders.com/851/thumb-1920-85182.jpg",
-        title: "Inception",
+        title: "Types of Risks",
+        fact: "Risks in business can be categorized into various types, including operational, financial, strategic, and compliance risks. Each type requires specific strategies for effective management."
     },
     {
-        cover: "https://images6.alphacoders.com/875/thumb-1920-875570.jpg",
-        title: "Blade Runner 2049",
+        title: "Risk Assessment",
+        fact: "Risk assessment involves evaluating the likelihood and severity of potential risks. It helps organizations prioritize risks based on their impact and likelihood of occurrence."
     },
     {
-        cover: "https://images6.alphacoders.com/114/thumb-1920-1141749.jpg",
-        title: "Icon man 3",
+        title: "Risk Mitigation",
+        fact: "Risk mitigation aims to reduce the likelihood of a risk occurring or minimize its impact. Strategies may include implementing safety measures, diversifying investments, or using insurance."
     },
     {
-        cover: "https://images3.alphacoders.com/948/thumb-1920-948864.jpg",
-        title: "Venom",
+        title: "Risk Transfer",
+        fact: "Risk transfer involves shifting the financial burden of a risk to another party, often through insurance contracts. It helps protect organizations from significant financial losses."
     },
     {
-        cover: "https://images2.alphacoders.com/631/thumb-1920-631095.jpg",
-        title: "Steins Gate",
+        title: "Risk Monitoring",
+        fact: "Continuous monitoring of risks is crucial. It allows organizations to stay proactive and adapt their risk management strategies as circumstances change."
     },
     {
-        cover: "https://images4.alphacoders.com/665/thumb-1920-665242.png",
-        title: "One Punch Man",
+        title: "Importance of Communication",
+        fact: "Effective communication is vital in risk management. Clear communication ensures that stakeholders are aware of potential risks and the actions being taken to mitigate them."
     },
     {
-        cover: "https://images2.alphacoders.com/738/thumb-1920-738176.png",
-        title: "A Silent Voice",
+        title: "Risk Management Standards",
+        fact: "There are international standards and frameworks for risk management, such as ISO 31000 and COSO ERM. These provide guidelines for implementing effective risk management processes.",
     },
     {
-        cover: "https://images8.alphacoders.com/100/thumb-1920-1005531.jpg",
-        title: "Demon Slayer",
+        title: "Cybersecurity Risks",
+        fact: "In the digital age, cybersecurity risks are a major concern. Protecting sensitive data and systems from cyber threats is a critical aspect of risk management."
     },
     {
-        cover: "https://images2.alphacoders.com/582/thumb-1920-582804.png",
-        title: "Attack On Titan",
+        title: "Crisis Management",
+        fact: "Part of risk management involves having a crisis management plan in place. This plan outlines how an organization will respond to and recover from unforeseen events or disasters."
     },
 ];
 
+const Button = styled.button`
+  background-color: #3F51B5;
+  font-family: Montserrat;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 60px;
+  border-radius: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+`;
 
 export default function ResponsiveCarousel() {
     const ref = React.useRef();
@@ -113,16 +125,30 @@ export const Card = React.memo(function (props) {
             }}
             className="my-slide-component"
         >
-            <img
+            <div
                 style={{
                     height: "100%",
                     width: "100%",
                     objectFit: "cover",
-                    borderRadius: 0,
+                    backgroundColor: "#8236FD",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    justifyContent: "space-evenly",
+                    padding: "20px",
+                    borderRadius: "20px",
                 }}
                 draggable={false}
-                src={cover}
-                alt={"image"}/>
+            >
+                <h3 style={{color: "white"}}>
+                    {data[dataIndex]["title"]}
+                </h3>
+                <h6 style={{color: "white"}}>
+                    {data[dataIndex]["fact"]}
+                </h6>
+                <Button>Find Out More</Button>
+            </div>
         </div>
     );
 });

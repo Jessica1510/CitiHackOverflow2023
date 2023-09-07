@@ -22,10 +22,12 @@ body {
     --padding-5xs: 8px;
 
     /* Colors */
-    --white: #fff;
     --main-grey-tones-main-grey-4: #e8e6e6;
     --black: #000;
-    --accent-blue: #5FC0D0;
+    --dark-blue: #3F51B5;
+    --purple: #8236FD;
+    --white: #fff;
+    --gray: #ABABB9;
 
     /* Gaps */
     --gap-3xs: 10px;
