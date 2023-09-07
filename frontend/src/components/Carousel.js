@@ -6,6 +6,7 @@ import {
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import styled from 'styled-components';
 
 // TODO: HARDCODED DATA FROM TEMPLATE
 export const data = [
@@ -51,6 +52,17 @@ export const data = [
     },
 ];
 
+const Button = styled.button`
+  background-color: #3F51B5;
+  font-family: Montserrat;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 60px;
+  border-radius: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+`;
 
 export default function ResponsiveCarousel() {
     const ref = React.useRef();
@@ -93,7 +105,6 @@ export default function ResponsiveCarousel() {
                     onClick={() => {
                         ref.current?.goNext();
                     }}
-                    backgroundColor="yellow"
                 >
                     <ArrowForwardIcon />
                 </Fab>
@@ -119,17 +130,24 @@ export const Card = React.memo(function (props) {
                     height: "100%",
                     width: "100%",
                     objectFit: "cover",
-                    borderRadius: 0,
-                    backgroundColor: "purple",
+                    backgroundColor: "#8236FD",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    justifyContent: "space-evenly",
+                    padding: "20px",
+                    borderRadius: "20px",
                 }}
                 draggable={false}
             >
-                <div>
+                <h3 style={{color: "white"}}>
                     {data[dataIndex]["title"]}
-                </div>
-                <div>
+                </h3>
+                <h6 style={{color: "white"}}>
                     {data[dataIndex]["fact"]}
-                </div>
+                </h6>
+                <Button>Find Out More</Button>
             </div>
         </div>
     );

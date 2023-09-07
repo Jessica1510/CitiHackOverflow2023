@@ -17,13 +17,13 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
     },
     {
+        path: "data/:ticker",
+        element: <DataPage />,
+    },
+    {
         path: "analysis/:ticker",
         element: <AnalysisPage />,
     },
-    {
-        path: "data/:ticker",
-        element: <DataPage />,
-    }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

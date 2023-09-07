@@ -6,10 +6,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import {createTheme, ThemeProvider} from "@mui/material";
+import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 export default function SimpleBottomNavigation() {
     const [value, setValue] = React.useState(0);
+    const navigate = useNavigate();
     const theme = createTheme({
         typography: {
             fontFamily: [
@@ -19,6 +22,16 @@ export default function SimpleBottomNavigation() {
             ].join(','),
         },
     });
+
+    useEffect(() => {
+        // This code will run after navigation
+        const valueRoute = {
+            0: "/",
+            1: "/data/search",
+            2: "/analysis/search"
+        }
+        navigate(valueRoute[value]);
+    }, [value]);
 
     return (
         <ThemeProvider theme={theme}>

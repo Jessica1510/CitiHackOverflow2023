@@ -67,6 +67,7 @@ body {
     border-bottom-left-radius: var(--br-mini);
     border-bottom-right-radius: var(--br-mini);
     box-shadow: var(--shadow-default);
+    padding-top: 40px;
 }
 
 .title{
