@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html {
+    width: 100%
+}
+
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+:root {
+    --default-font: Montserrat;
+
+    /* font sizes */
+    --small-regular-size: 12px;
+    --header-05-size: 18px;
+    --fine-print-semibold-size: 10px;
+    --body-02-regular-size: 14px;
+    --body-01-bold-size: 16px;
+    --padding-5xs: 8px;
+
+    /* Colors */
+    --main-grey-tones-main-grey-4: #e8e6e6;
+    --black: #000;
+    --dark-blue: #3F51B5;
+    --purple: #8236FD;
+    --white: #fff;
+    --gray: #ABABB9;
+
+    /* Gaps */
+    --gap-3xs: 10px;
+    --gap-5xl: 24px;
+    --gap-5xs: 8px;
+    --gap-xs: 12px;
+
+    /* Paddings */
+    --padding-xs: 12px;
+    --padding-5xl: 24px;
+    --padding-7xs: 6px;
+    --padding-9xs: 4px;
+
+    /* border radiuses */
+    --br-xl: 20px;
+    --br-mini: 15px;
+
+    /* shadow */
+    --shadow-default: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
