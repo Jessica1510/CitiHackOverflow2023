@@ -5,10 +5,8 @@ import "./index.css";
 import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import AnalysisPage from "./pages/AnalysisPage";
+import DataPage from "./pages/DataPage";
 
-function DataPage() {
-    return null;
-}
 
 const router = createBrowserRouter([
     {
@@ -17,12 +15,12 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
     },
     {
-        path: "data/:ticker",
-        element: <DataPage />,
+        path: "analysis/:ticker?",
+        element: <AnalysisPage />,
     },
     {
-        path: "analysis/:ticker",
-        element: <AnalysisPage />,
+        path: "data/:ticker?",
+        element: <DataPage />,
     },
 ]);
 
