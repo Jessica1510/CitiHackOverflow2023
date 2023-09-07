@@ -10,10 +10,10 @@ const AnalysisPage = () => {
     const [data, setData] = useState("");
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:8888/sample/summary/" + ticker);
-        const todos = await response.text();
-        setData(todos.data);
-        console.log("success");
+        const response = await fetch("http://localhost:8888/summary/" + ticker);
+        const summary = await response.text();
+        setData(summary);
+        console.log(summary);
     }
 
     useEffect(() => {

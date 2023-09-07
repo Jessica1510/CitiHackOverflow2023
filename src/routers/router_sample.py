@@ -4,7 +4,7 @@ from ..Controllers.SentimentAnalysisController import sentiment_scores
 from ..Controllers.TrendAnalysis import loadData
 from ..Controllers.Summary import generate_summary_message
 
-router = APIRouter(prefix="/sample", tags=["sample"])
+router = APIRouter(prefix="", tags=["sample"])
 
 @router.get("/")
 async def sample():

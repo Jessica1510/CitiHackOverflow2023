@@ -5,3 +5,4 @@ env
 .coverage
 .tox
 .pytest_cache
+__pycache__
