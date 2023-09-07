@@ -3,29 +3,27 @@ import {motion} from "framer-motion";
 import SearchBar from "../components/SearchBar";
 import {useNavigate, useParams} from "react-router-dom";
 import "../index.css"
+import ReactLoading from "react-loading";
+import BottomNavigation from "../components/BottomNavigation";
 
 const AnalysisPage = () => {
     let { ticker } = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    const [graph, setGraph] = useState("");
+    const [insights, setInsights] = useState("");
 
     const fetchData = async () => {
-
         const sentimentResponse = await fetch("http://localhost:8888/sentiment_scores/" + ticker);
         const responseData = await sentimentResponse.json();
         // Assuming responseData is the JSON object with the "image_url" property
-        const graphUrl = "http://localhost:8888" + responseData.image_url;
-        const headline1 = responseData.headline1;
-        const headline2 = responseData.headline2;
-        const headline3 = responseData.headline3;
+        setGraph(responseData.image);
+        const article_insights = responseData.article_insights;
+        setInsights(article_insights);
 
         const response = await fetch("http://localhost:8888/summary/" + ticker);
         const summary = await response.text();
         setData(summary);
-        console.log(summary);
-
-        setImageUrl(graphUrl)
     }
 
     useEffect(() => {
@@ -45,18 +43,34 @@ const AnalysisPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
-            {data && (
+            {!data && (
                 <div>
+                    <ReactLoading type={"balls"} color="#415A77" />
+                </div>
+            )}
+            {data && (
+                <div style={{padding: "20px", display: "flex", flexDirection: "column", gap: "20px", textAlign: "center"}}>
+                    <h3>
+                        General Summary
+                    </h3>
                     <p>
                         {data}
                     </p>
+                    <h3>
+                        Current Sentiments
+                    </h3>
+                    <div dangerouslySetInnerHTML={{ __html: atob(graph) }} />
+                    <h3>
+                        Risk Insights
+                    </h3>
+                    <p>
+                        {insights}
+                    </p>
                 </div>
             )}
-            {imageUrl.length > 0 &&
-            (<div>
-                <img src={imageUrl} width="400" height="400"/>
-            </div>)
-            }
+        <div className={"bottomNavigation"}>
+            <BottomNavigation />
+        </div>
         </div>
     );
 };

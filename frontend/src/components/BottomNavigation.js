@@ -26,8 +26,7 @@ export default function SimpleBottomNavigation() {
             <Box sx={{ width: "100%", fontFamily: "Montserrat" }}>
                 <BottomNavigation
                     showLabels
-                    value={value}
-                    onChange={(event, newValue) => {
+                    onChange={(event) => {
                         navigate("/");
                     }}
                 >

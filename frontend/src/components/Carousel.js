@@ -8,7 +8,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import styled from 'styled-components';
 
-// TODO: HARDCODED DATA FROM TEMPLATE
 export const data = [
     {
         title: "What is Risk Management?",

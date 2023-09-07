@@ -6,6 +6,8 @@ import "../index.css"
 import { useState,useEffect } from "react";
 import ReactLoading from "react-loading";
 import {Button} from "@mui/material";
+import BottomNavigation from "../components/BottomNavigation";
+
 
 const DataPage = () => {
     let {ticker} = useParams();
@@ -117,6 +119,9 @@ const DataPage = () => {
                     </Button>
                 </div>
             )}
+        <div className={"bottomNavigation"}>
+            <BottomNavigation />
+        </div>
         </div>
     );
 };

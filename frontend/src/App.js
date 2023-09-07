@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.css";
 import "./global.css";
-import BottomNavigation from "./components/BottomNavigation";
 import {Route, Routes} from 'react-router';
 import HomePage from "./pages/HomePage";
 import DataPage from "./pages/DataPage";
@@ -16,9 +15,6 @@ function App() {
                 <Route path="/data/:ticker" element={<DataPage />} />
                 <Route path="/analysis/:ticker" element={<AnalysisPage />} />
             </Routes>
-            <div className={"bottomNavigation"}>
-                <BottomNavigation />
-            </div>
         </div>
     );
 }

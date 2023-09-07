@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from ..Controllers.SentimentAnalysisController import sentiment_score
 from ..Controllers.TrendAnalysis import loadData
-from ..Controllers.Summary import generate_summary_message
+from ..Controllers.Summary import generate_summary_message, generate_insights_articles
 import json
 from fastapi.responses import JSONResponse
 
@@ -15,13 +15,18 @@ async def sample():
 
 @router.get('/sentiment_scores/{ticker}')
 async def sentiment_scores(ticker):
-    headlines = sentiment_score(ticker)
+    headlines, sentiment_graph = sentiment_score(ticker)
+
+    article_insights = generate_insights_articles(
+        headlines["headline1"],
+        headlines["headline2"],
+        headlines["headline3"],
+        ticker
+    )
 
     response = {
-        "image_url": f'/Images/{ticker}.svg',
-        "headline1": headlines["headline1"],
-        "headline2": headlines["headline2"],
-        "headline3": headlines["headline3"],
+        "image": sentiment_graph,
+        "article_insights": article_insights
     }
 
     return JSONResponse(content=response)

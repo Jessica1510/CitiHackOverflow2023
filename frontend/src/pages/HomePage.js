@@ -2,7 +2,8 @@ import {motion} from "framer-motion";
 import SearchBar from "../components/SearchBar";
 import Carousel from "../components/Carousel";
 import React from "react";
-import "../index.css"
+import "../index.css";
+import BottomNavigation from "../components/BottomNavigation";
 
 const HomePage = () => {
     return(
@@ -40,6 +41,9 @@ const HomePage = () => {
             </h2>
             <Carousel/>
         </motion.div>
+        <div className={"bottomNavigation"}>
+            <BottomNavigation />
+        </div>
     </div>
 )
 }

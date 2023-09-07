@@ -13,7 +13,6 @@ relative_path = "src/"
 
 app = FastAPI()
 
-app.mount("/Images", StaticFiles(directory="src/Images"), name="Images")
 app.include_router(router.router)
 origins = [
     "http://localhost:3000",
@@ -35,10 +34,3 @@ templates = Jinja2Templates(directory=(relative_path + "templates"))
 @app.get('/', response_class=HTMLResponse)
 async def root(request: Request) -> templateResponse:
     return templates.TemplateResponse("index.html", {"request": request})
-
-
-@app.get('/imgs/forecast-graph', response_class=HTMLResponse)
-async def return_forecast_graph():
-    return """
-        <img src="imgs/forecast-graph.svg">
-    """
