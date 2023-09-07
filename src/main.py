@@ -2,14 +2,16 @@ from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
 from starlette.responses import HTMLResponse
 from fastapi import Request
+from fastapi.staticfiles import StaticFiles
 from starlette.templating import _TemplateResponse as templateResponse
 
 from src.routers import router_sample
 
 relative_path = "src/"
 
-
 app = FastAPI()
+
+app.mount("/Images", StaticFiles(directory="src/Images"), name="Images")
 app.include_router(router_sample.router)
 
 templates = Jinja2Templates(directory=(relative_path + "templates"))
