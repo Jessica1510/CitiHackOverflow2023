@@ -37,10 +37,10 @@ body {
 .mainContainer {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    margin: 20px auto;
+    width: 100%;
+    margin: 0 auto;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     padding-bottom: 56px;
 }
 
@@ -56,6 +56,22 @@ body {
 .popular_container{
     display: flex;
     overflow-x: scroll;
+}
+
+.header{
+    background-color: var(--purple);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: var(--br-mini);
+    border-bottom-right-radius: var(--br-mini);
+    box-shadow: var(--shadow-default);
+}
+
+.title{
+    color: white;
+    margin-top: 20px;
 }
 
 ::-webkit-scrollbar {

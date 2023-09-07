@@ -12,13 +12,15 @@ const SearchBar = () =>
     return(
         <div className="Card">
             <div className="CardInner">
-                <label>Search for a Ticker</label>
+                <label>
+                    Start Exploring By Finding A Ticker
+                </label>
                 <div className="SearchContainer">
                     <div
                         className="Icon"
                         onClick={ handleSubmit() }
                     >
-                        <img src="/icons/searchIcon.svg" alt="search icon" />
+                        <img src="/icons/searchIcon.svg" alt="search icon" style={{color: "white"}} />
                     </div>
                     <form className="InputContainer">
                         <input placeholder="TSLA or NVDA or AAPL"/>

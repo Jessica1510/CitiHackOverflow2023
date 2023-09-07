@@ -10,7 +10,6 @@ import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function SimpleBottomNavigation() {
     const [value, setValue] = React.useState(0);
-
     const theme = createTheme({
         typography: {
             fontFamily: [

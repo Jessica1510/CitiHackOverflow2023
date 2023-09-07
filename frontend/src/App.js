@@ -7,15 +7,14 @@ import Carousel from "./components/Carousel";
 
 
 function App() {
-    // TODO: HARDCODED
-    const popularCount = Array.from({ length: 10 }, (_, index) => index + 1);
-
     return (
         <div className={"mainContainer"}>
-            <h1>
-                Welcome
-            </h1>
-            <SearchBar />
+            <div className={"header"}>
+                <h1 className={"title"}>
+                    Welcome
+                </h1>
+                <SearchBar />
+            </div>
             <h2>
                 Featured
             </h2>
