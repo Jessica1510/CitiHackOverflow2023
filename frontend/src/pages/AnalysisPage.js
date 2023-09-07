@@ -8,12 +8,20 @@ const AnalysisPage = () => {
     let { ticker } = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:1337/summary/" + ticker);
+
+        const response = await fetch("http://localhost:8888/summary/" + ticker);
         const summary = await response.text();
         setData(summary);
         console.log(summary);
+
+        const sentimentResponse = await fetch("http://localhost:8888/sentiment_scores/" + ticker);
+        const responseData = await sentimentResponse.json();
+        // Assuming responseData is the JSON object with the "image_url" property
+        const graphUrl = "http://localhost:8888" + responseData.image_url;
+        setImageUrl(graphUrl)
     }
 
     useEffect(() => {
@@ -40,6 +48,11 @@ const AnalysisPage = () => {
                     </p>
                 </div>
             )}
+            {imageUrl.length > 0 && 
+            (<div>
+                <img src={imageUrl} width="400" height="400"/>
+            </div>)
+            }
         </div>
     );
 };

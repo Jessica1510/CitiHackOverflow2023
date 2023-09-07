@@ -13,7 +13,7 @@ async def sample():
 @router.get('/sentiment_scores/{ticker}')
 async def sentiment_scores(ticker):
     sentiment_score(ticker)
-    #return {"image_url": f'/Images/{ticker}.png'}
+    return {"image_url": f'/Images/{ticker}.svg'}
 
 @router.get('/summary/{ticker}')
 async def summary_scores(ticker):

@@ -59,8 +59,9 @@ def sentiment_score(ticker):
 
     script_dir = os.path.dirname(__file__)
     src_dir = os.path.dirname(script_dir)
-    main_dir = os.path.dirname(src_dir)
-    images_dir = os.path.join(main_dir, 'frontend/public/')
+    #main_dir = os.path.dirname(src_dir)
+    #images_dir = os.path.join(main_dir, 'frontend/public/')
+    images_dir = os.path.join(src_dir, 'Images/')
     plt.savefig(images_dir + f'{ticker}.svg', format="svg")
 
 
