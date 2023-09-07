@@ -4,18 +4,24 @@ import SearchBar from "../components/SearchBar";
 import {motion} from "framer-motion";
 import "../index.css"
 import { useState,useEffect } from "react";
+import ReactLoading from "react-loading";
+import {Button} from "@mui/material";
 
 const DataPage = () => {
     let {ticker} = useParams();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [data, setData] = useState("")
+    const [graph, setGraph] = useState("")
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:8888/forecast_data/" + ticker);
+        let response = await fetch("http://localhost:8888/forecast_data/" + ticker);
         const forecast_data = await response.json();
-        // setData(forecast_data);
-        console.log(forecast_data);
+        setGraph(forecast_data[0])
+        const firstDataItem = typeof forecast_data[1] === 'string'
+            ? JSON.parse(forecast_data[1])
+            : forecast_data[1];
+        setData(firstDataItem[0]);
     }
 
     useEffect(() => {
@@ -35,11 +41,82 @@ const DataPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
-            {/* {data && (
-                <div>
-                    <img src="/Stock.svg" />
+            {!graph && (
+                <div style={{marginTop: "50px"}}>
+                    <ReactLoading type={"balls"} color="#415A77" />
                 </div>
-            )} */}
+            )}
+            {graph && (
+                <div dangerouslySetInnerHTML={{ __html: atob(graph) }} />
+            )}
+            {data && (
+                <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "10px"
+                }}>
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "16px",
+                        textAlign: "center",
+                        fontSize: "24px",
+                        alignContent: "center",
+                        borderColor: "black",
+                        backgroundColor: "#415A77",
+                        padding: "30px",
+                        paddingLeft: "60px",
+                        paddingRight: "60px",
+                        color: "white",
+                        borderRadius: "15px"
+                    }}>
+                        <h4>
+                            Date
+                        </h4>
+                        <p>
+                            {data.Date}
+                        </p>
+                        <h4>
+                            Open
+                        </h4>
+                        <p>
+                            {data.Open}
+                        </p>
+                        <h4>
+                            High
+                        </h4>
+                        <p>
+                            {data.High}
+                        </p>
+                        <h4>
+                            Low
+                        </h4>
+                        <p>
+                            {data.Low}
+                        </p>
+                        <h4>
+                            Close
+                        </h4>
+                        <p>
+                            {data.Close}
+                        </p>
+                        <h4>
+                            Volume
+                        </h4>
+                        <p>
+                            {data.Volume}
+                        </p>
+                    </div>
+                    <Button onClick={() => {
+                        navigate(`/analysis/${ticker}`);
+                    }}>
+                        <p style={{fontSize: "18px"}}>
+                        Get An Analysis
+                        </p>
+                    </Button>
+                </div>
+            )}
         </div>
     );
 };

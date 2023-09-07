@@ -52,7 +52,7 @@ const AnalysisPage = () => {
                     </p>
                 </div>
             )}
-            {imageUrl.length > 0 && 
+            {imageUrl.length > 0 &&
             (<div>
                 <img src={imageUrl} width="400" height="400"/>
             </div>)

@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 
 router = APIRouter(prefix="", tags=["sample"])
 
+
 @router.get("/")
 async def sample():
     return "sample passed"
@@ -24,6 +25,7 @@ async def sentiment_scores(ticker):
     }
 
     return JSONResponse(content=response)
+
 
 @router.get('/summary/{ticker}')
 async def summary_scores(ticker):

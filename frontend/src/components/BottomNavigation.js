@@ -6,10 +6,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import {createTheme, ThemeProvider} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 
 export default function SimpleBottomNavigation() {
-    const [value, setValue] = React.useState(0);
+    const navigate = useNavigate();
     const theme = createTheme({
         typography: {
             fontFamily: [
@@ -27,12 +28,10 @@ export default function SimpleBottomNavigation() {
                     showLabels
                     value={value}
                     onChange={(event, newValue) => {
-                        setValue(newValue);
+                        navigate("/");
                     }}
                 >
                     <BottomNavigationAction label="Home" icon={ <HomeIcon /> } />
-                    <BottomNavigationAction label="Data" icon={ <QueryStatsIcon /> } />
-                    <BottomNavigationAction label="Analysis" icon={ <SummarizeIcon /> } />
                 </BottomNavigation>
             </Box>
         </ThemeProvider>
