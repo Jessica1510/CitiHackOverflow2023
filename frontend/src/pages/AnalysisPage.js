@@ -1,31 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import SearchBar from "../components/SearchBar";
 import {useNavigate, useParams} from "react-router-dom";
 import "../index.css"
 
 const AnalysisPage = () => {
-    let {ticker} = useParams();
+    let { ticker } = useParams();
     const navigate = useNavigate();
+    const [data, setData] = useState("");
 
-    // TODO: Replace this value with the actual endpoint
-    // fetch('/api/endpoint', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ ticker }),
-    // })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         // Handle response from backend
-    //         console.log(data);
-    //     })
-    //     .catch(error => {
-    //         // Handle error
-    //         console.error('Error:', error);
-    //         navigate("/");
-    //     });
+    const fetchData = async () => {
+        const response = await fetch("http://localhost:8888/sample/summary/" + ticker);
+        const todos = await response.text();
+        setData(todos.data);
+        console.log("success");
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
 
     return (
         <div className={"mainContainer"}>
@@ -40,6 +33,13 @@ const AnalysisPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
+            {data && (
+                <div>
+                    <p>
+                        {data}
+                    </p>
+                </div>
+            )}
         </div>
     );
 };
