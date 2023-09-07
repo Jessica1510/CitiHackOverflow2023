@@ -5,6 +5,7 @@ from ..Controllers.Summary import generate_summary_message
 
 router = APIRouter(prefix="", tags=["sample"])
 
+
 @router.get("/")
 async def sample():
     return "sample passed"
@@ -14,6 +15,7 @@ async def sample():
 async def sentiment_scores(ticker):
     sentiment_score(ticker)
     #return {"image_url": f'/Images/{ticker}.png'}
+
 
 @router.get('/summary/{ticker}')
 async def summary_scores(ticker):

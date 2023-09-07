@@ -10,12 +10,13 @@ const DataPage = () => {
     // const navigate = useNavigate();
 
     const [data, setData] = useState("")
+    const [graph, setGraph] = useState("")
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:8888/forecast_data/" + ticker);
+        let response = await fetch("http://localhost:8888/forecast_data/" + ticker);
         const forecast_data = await response.json();
-        // setData(forecast_data);
-        console.log(forecast_data);
+        setGraph(forecast_data[0])
+        setData(forecast_data[1]);
     }
 
     useEffect(() => {
@@ -35,11 +36,9 @@ const DataPage = () => {
                 </h1>
                 <SearchBar />
             </motion.div>
-            {/* {data && (
-                <div>
-                    <img src="/Stock.svg" />
-                </div>
-            )} */}
+            {graph && (
+                <div dangerouslySetInnerHTML={{ __html: atob(graph) }} />
+            )}
         </div>
     );
 };
